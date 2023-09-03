@@ -1,13 +1,31 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Infisical Secrets'
+description: 'Manage secrets for Infisical'
+author: 'Austin Goodman'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps
-    description: 'The current time after waiting'
+  # infisical self-hosted api domain
+  domain:
+    description: 'self-hosted Infisical API domain'
+    required: false
+
+  # get secrets
+  get:
+    description: 'get secrets'
+    required: false
+
+  # create secrets
+  create:
+    description: 'create secrets'
+    required: false
+
+  # update secrets
+  set:
+    description: 'update secrets'
+    required: false
+
+  # delete secrets
+  delete:
+    description: 'delete secrets'
+    required: false
 runs:
   using: 'node16'
   main: 'dist/index.js'
