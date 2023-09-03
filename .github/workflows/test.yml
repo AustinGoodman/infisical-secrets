@@ -3,13 +3,17 @@ on:
   pull_request:
   push:
     branches:
-      - main
-      - 'releases/*'
+    - main
+    - 'releases/*'
 
 jobs:
   # unit tests
   units:
     runs-on: ubuntu-latest
+    env:
+      DOMAIN: ${{ secrets.DOMAIN }}
+      TOKEN_DEV_DIR1: ${{ secrets.TOKEN_DEV_DIR1 }}
+      TOKEN_DEV_DIR2: ${{ secrets.TOKEN_DEV_DIR2 }}
     steps:
     - uses: actions/checkout@v3
     - run: npm ci
@@ -18,8 +22,10 @@ jobs:
   # test action works running from the graph
   test:
     runs-on: ubuntu-latest
+    env:
+      DOMAIN: ${{ secrets.DOMAIN }}
+      TOKEN_DEV_DIR1: ${{ secrets.TOKEN_DEV_DIR1 }}
+      TOKEN_DEV_DIR2: ${{ secrets.TOKEN_DEV_DIR2 }}
     steps:
     - uses: actions/checkout@v3
     - uses: ./
-      with:
-        milliseconds: 1000
