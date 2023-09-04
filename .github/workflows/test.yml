@@ -15,7 +15,7 @@ jobs:
       TOKEN_DEV_DIR1: ${{ secrets.TOKEN_DEV_DIR1 }}
       TOKEN_DEV_DIR2: ${{ secrets.TOKEN_DEV_DIR2 }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - run: npm ci
     - run: npm test
 
@@ -27,5 +27,5 @@ jobs:
       TOKEN_DEV_DIR1: ${{ secrets.TOKEN_DEV_DIR1 }}
       TOKEN_DEV_DIR2: ${{ secrets.TOKEN_DEV_DIR2 }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: ./
