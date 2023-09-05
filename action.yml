@@ -18,7 +18,7 @@ inputs:
     required: false
 
   # update secrets
-  set:
+  update:
     description: 'update secrets'
     required: false
 
